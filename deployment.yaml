@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: news-wa-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: news-wa
+  template:
+    metadata:
+      labels:
+        app: news-wa
+    spec:
+      containers:
+      - name: news-wa
+        image: yash5090/news-wa:latest
+        ports:
+        - containerPort: 3000
